@@ -1,15 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom/client'; // Correct import for React 18
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import { Provider } from 'react-redux';
+import store from "./redux/store";
 
+// Create a root.
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Initial render
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
     <ToastContainer />
   </React.StrictMode>
 );
