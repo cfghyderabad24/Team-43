@@ -1,13 +1,18 @@
 import React from 'react'
 import { useEffect } from 'react'
-import axios from 'axios'
+import { axiosWithToken } from '../../axiosWithToken.js'
 
 const UserSupportHistory = () => {
 
   const history = async() => {
-    const add = localStorage.getItem('address')
-    const response = await axios.post("http://localhost:8000/api/user/latlong", add)
-    console.log(response);
+    try {
+      const add = localStorage.getItem('address')
+      console.log(add);
+      const response = await axiosWithToken.post("http://localhost:8000/api/user/latlong", add)
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
     useEffect(() => {
