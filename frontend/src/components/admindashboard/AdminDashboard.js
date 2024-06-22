@@ -20,7 +20,7 @@ function AdminDashboard() {
     console.log(eventname);
     console.log(date);
     console.log(address);
-    const response = await axios.put('http://localhost:8000/api/admin/event', {
+    const response = await axios.post('http://localhost:8000/api/admin/event', {
       avatar,
       pin,
       eventname,
