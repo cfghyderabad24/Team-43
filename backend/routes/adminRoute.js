@@ -6,7 +6,7 @@ import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import User from '../models/User.js'
 
-AdminRoute.get('/getdonors',verifyToken, expressAsyncHandler(async (req, res) => {
+AdminRoute.get('/getdonors', expressAsyncHandler(async (req, res) => {
     try {
         const donors = await User.find({})
         if (!donors) {
