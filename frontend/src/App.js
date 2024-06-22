@@ -8,6 +8,7 @@ import Login from './components/login/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import AuthContextProvider from './context/AuthContext/AuthContextProvider';
 import Profile from './components/profile/Profile';
+import Product from './components/product/Product';
 
 function App() {
   const browserRouter = createBrowserRouter([{
@@ -34,7 +35,12 @@ function App() {
       {
         path: '/dashboard/profile',
         element: <Profile />
+      },
+      {
+        path: 'product',
+        element: <Product />
       }
+      
     ]
   }])
 
