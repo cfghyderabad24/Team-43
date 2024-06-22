@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "braintree": "^3.23.0"
+    "braintree": "^3.23.0",
+    "react-redux": "^9.1.2"
   }
 }
