@@ -52,9 +52,13 @@ const ProductCard = ({ name, id, price,description,durability, handler, imgSrc }
   <div className="productCard">
     <img src={imgSrc} alt={name} />
     <p>{name}</p>
+<<<<<<< HEAD
     <h4>Cost: Rs.{price}</h4>
     <p>{description}</p>
     <p>Durability: {durability}years</p>
+=======
+    <h4>${price}</h4> 
+>>>>>>> ad687b9fccbbaa236b1bc4e9b118d1d5eab8c65f
     <button onClick={() => handler({ name, price, id, qty: 1, imgSrc })}>
       Add to Cart
     </button>
