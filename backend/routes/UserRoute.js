@@ -1,9 +1,11 @@
 import express from 'express'
 const userRoute = express.Router()
+import Product from '../models/product.js'
 import User from '../models/User.js'
 import expressAsyncHandler from 'express-async-handler'
 import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import verifyToken from '../middlewares/VerifyToken.js'
 
 userRoute.post("/register", expressAsyncHandler(async (req, res) => {
     try {
@@ -21,12 +23,6 @@ userRoute.post("/register", expressAsyncHandler(async (req, res) => {
         await newUser.save()
 
         const token = jwt.sign({ email: email }, process.env.JWT_SECRET_KEY, { expiresIn: '1d' })
-
-        // res.cookie("auth_token", token, {
-        //     httpOnly: true,
-        //     secure: process.env.NODE_ENV === 'production',
-        //     maxAge: 86400000
-        // })
 
         return res.status(201).json({ message: "User Created Successfully!", newUser })
     } catch (error) {
@@ -69,5 +65,15 @@ userRoute.put("/update", expressAsyncHandler(async (req, res) => {
         return res.status(500).json({ message: "Something went wrong!" })
     }
 }))
+
+userRoute.get('/products',verifyToken,expressAsyncHandler(async (req, res) => {
+    const products = await Product.find({})
+    if (!products) {
+        return res.status(404).json({ message: "Products not found!" })
+    }
+    return res.status(200).json({ message: "All products", products })
+}))
+
+userRoute
 
 export default userRoute
