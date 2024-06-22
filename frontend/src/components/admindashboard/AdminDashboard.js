@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import AdminVisual from '../adminvisuals/AdminVisual'
 import axios from 'axios';
-import profile from '../../assets/profile.png'
+import noimage from '../../assets/noimage.png'
 import Upload from '../uploads/Upload';
 
 function AdminDashboard() {
@@ -72,7 +72,7 @@ function AdminDashboard() {
           </div>
           <div className='min-h-[300px] flex flex-col justify-center items-start gap-6 w-[50%] p-2'>
             {
-              !avatar ? <img src={profile} alt="" className='w-[300px] rounded-lg' /> :
+              !avatar ? <img src={noimage} alt="" className='w-[300px] rounded-lg' /> :
                 <img src={avatar} alt="" className='rounded-lg w-[300px]' />
             }
             <Upload uwConfig={{
