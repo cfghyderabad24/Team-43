@@ -202,7 +202,7 @@ function AdminVisual() {
     return () => {
       chartRefs?.current?.forEach(ref => {
         if (ref) {
-          ref.chartInstance.destroy();
+          ref.chartInstance?.destroy();
         }
       })
     };
