@@ -20,31 +20,15 @@ AdminRoute.get('/events', expressAsyncHandler(async (req, res) => {
     }
 }))
 
-AdminRoute.post('/event', expressAsyncHandler(async (req, res) => {
+AdminRoute.post('/event',expressAsyncHandler(async(req,res)=>{
     try {
-      const { avatar, pin, eventname, date, address } = req.body;
-  
-      // Create a new Event instance with the data received
-      const addedevent = new Event({
-        avatar,
-        pin,
-        eventname,
-        date,
-        address
-      });
-  
-      // Save the event to the database
-      await addedevent.save();
-  
-      // Respond with success message and added event details
-      res.status(201).send({ message: "Event added successfully", addedevent });
+        let event= await req.body
+        const addedevent= await Event.create(event)
+        res.send({message:"Event added successfully",addedevent})
     } catch (error) {
-      // Handle any errors and send a 500 status code with an error message
-      console.error("Error adding event:", error);
-      res.status(500).send({ message: "Failed to add event" });
+        console.log("error in adding event",error);
     }
-  }));
-
+}))
 
 
 export default AdminRoute

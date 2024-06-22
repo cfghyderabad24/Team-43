@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import AdminVisual from '../adminvisuals/AdminVisual'
 import axios from 'axios';
 import profile from '../../assets/profile.png'
@@ -12,8 +12,9 @@ function AdminDashboard() {
   const [eventname, setEventname] = useState('')
   const [date, setdate] = useState('')
   const [address, setAddress] = useState('')
+  const navigate = useNavigate();
 
-  const updateData = async(e) => {
+  const updateData = async (e) => {
     e.preventDefault()
     console.log(avatar);
     console.log(pin);
@@ -30,10 +31,19 @@ function AdminDashboard() {
     console.log(response);
   }
 
+  const eventHistory = async () => {
+    // const response = await axios.get('http://localhost:8000/api/admin/event')
+    navigate('/admin/event')
+    console.log("history");
+  }
+
   return (
     <div>
       <div>
-        <h1 className='text-6xl text-red-600 text-center my-2 font-serif hover:text-amber-400 animate-pulse'>Event-Management</h1>
+        <div className='flex justify-around items-center m-2'>
+          <h1 className='text-6xl text-red-600 text-center my-2 font-serif hover:text-amber-400 animate-pulse'>Event-Management</h1>
+          <h1 className='text-3xl text-red-600 bg-amber-300 p-3 px-5 rounded-md cursor-pointer' onClick={eventHistory}>History of Events</h1>
+        </div>
         <div className='w-full my-10 flex flex-col gap-5 md:flex-row items-center'>
           <div className='w-[75%] md:w-[50%] p-10 flex md:justify-end justify-center'>
             <form className='bg-red-600 p-10 md:w-[75%] w-full rounded-lg'>
