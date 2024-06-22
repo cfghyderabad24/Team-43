@@ -11,11 +11,11 @@ import { useSelector } from 'react-redux';
 
 const Home1 = () => {
   const {cartItems} = useSelector(state=>state.cart);
-  const img1 = "https://static.sweetcare.pt/img/prd/488/v-638350450734038524/ammo-019820zj_01.webp";
-  const img2 = "https://tse2.mm.bing.net/th?id=OIP.tEkiCbWYiOPPyhdmF36mnQHaE8&pid=Api&P=0&h=180";
+  const img2 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2yeIg9qpPJNvkZXJeCl6h2-zPLG_fz4vtpQ&s";
+  const img1 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn30rLNeFqqWZL6HjJ9wteVXWpUCrbW7Ml6A&s";
   const productList = [
-    { imgSrc: img1, name: 'Menstrual Cup', price: 12000, id: 'tytyt' },
-    { imgSrc: img2, name: 'Sanitary pads', price: 9000, id: 'dfslksd' }
+    { imgSrc: img1, name: 'SiliconMenstrual Cup', price: 699,description: 'A menstrual cup is a flexible, bell-shaped cup made typically from medical-grade silicone or latex rubber. It is designed to collect menstrual fluid rather than absorb it, offering a modern and sustainable alternative to traditional menstrual products.',durability: 8,id: 'tytyt' },
+    { imgSrc: img2, name: 'Cloth Pads', price: 399,description:'Cloth pads are eco-friendly and reusable menstrual products made from breathable, often organic materials like cotton or bamboo. They offer a sustainable alternative to disposable pads, contributing significantly to reducing waste and environmental impact.' ,durability:2,id: 'dfslksd' }
   ];
 
   const dispatch = useDispatch();
@@ -34,6 +34,8 @@ const Home1 = () => {
           imgSrc={i.imgSrc}
           name={i.name}
           price={i.price}
+          description={i.description}
+          durability={i.durability}
           id={i.id}
           handler={addToCartHandler}
         />
@@ -46,11 +48,13 @@ const Home1 = () => {
   );
 };
 
-const ProductCard = ({ name, id, price, handler, imgSrc }) => (
+const ProductCard = ({ name, id, price,description,durability, handler, imgSrc }) => (
   <div className="productCard">
     <img src={imgSrc} alt={name} />
     <p>{name}</p>
-    <h4>${price}</h4>
+    <h4>Cost: Rs.{price}</h4>
+    <p>{description}</p>
+    <p>Durability: {durability}years</p>
     <button onClick={() => handler({ name, price, id, qty: 1, imgSrc })}>
       Add to Cart
     </button>
