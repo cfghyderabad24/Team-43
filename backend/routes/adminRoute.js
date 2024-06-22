@@ -4,6 +4,7 @@ import Admin from '../models/admin.js'
 import expressAsyncHandler from 'express-async-handler'
 import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import User from '../models/User.js'
 
 AdminRoute.get('/getdonors',verifyToken, expressAsyncHandler(async (req, res) => {
     try {
@@ -17,6 +18,8 @@ AdminRoute.get('/getdonors',verifyToken, expressAsyncHandler(async (req, res) =>
         return res.status(500).json({ message: "Something went wrong!" })
     }
 }))
+
+
 
 
 export default AdminRoute

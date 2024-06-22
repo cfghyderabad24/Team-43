@@ -1,5 +1,5 @@
 import mongoose, {Schema} from 'mongoose'
-import Product from './product.js'
+// import Product from './product.js'
 
 const userSchema = new Schema({
     username: {
