@@ -7,6 +7,7 @@ import { MdWavingHand } from "react-icons/md";
 import { useContext } from 'react';
 import profile from '../../assets/profile.png'
 import AuthContext from '../../context/AuthContext/AuthContext'
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
     const { user } = useContext(AuthContext)
@@ -66,6 +67,7 @@ const Navbar = () => {
                                     <img src={localStorage.getItem('avatar') === 'undefined' ? profile : localStorage.getItem('avatar')} alt="" className='rounded-full w-12 h-12 cursor-pointer' onClick={handleProfile}/>
                                 </li>
                             </ul>
+                            <FaShoppingCart/>
                         </>
                     )
                 }
