@@ -4,6 +4,7 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import userRoute from "./routes/UserRoute.js";
 import loginRouter from "./routes/authRoute.js";
+import sendEmail from "./utils/sendEmail.js";
 import path from 'path'
 const __dirname = import.meta.dirname;
 
@@ -25,17 +26,17 @@ app.use("/api/user", userRoute)
 app.use("/api/auth", loginRouter)
 
 
-app.post("/api/sendemail", async (req, res) => {
+app.post("/api/payment/sendemail", async (req, res) => {
     const { email } = req.body;
   
     try {
       const send_to = email;
       const sent_from = process.env.EMAIL_USER;
       const reply_to = email;
-      const subject = "Thank You Message From NodeCourse";
+      const subject = "Thank You Message From Good Universe";
       const message = `
-          <h3>Hello Zino</h3>
-          <p>Thank for your YouTube Tutorials</p>
+          <h3>Hello!</h3>
+          <p>Payment Successful!</p>
           <p>Regards...</p>
       `;
   
