@@ -10,6 +10,7 @@ import AuthContextProvider from './context/AuthContext/AuthContextProvider';
 import Profile from './components/profile/Profile';
 import Email from './components/email/Email';
 import AdminDashboard from './components/admindashboard/AdminDashboard'
+import EventHistory from './components/eventHistory/EventHistory';
 
 function App() {
   const browserRouter = createBrowserRouter([{
@@ -44,9 +45,14 @@ function App() {
     ]
   },
   {
-    path: '/admin',
-    element: <AdminDashboard />
-  }])
+    path: 'admin',
+    element: <AdminDashboard />,
+  },
+  {
+    path: 'admin/event',
+    element: <EventHistory />
+  }
+  ])
 
   return (
     <AuthContextProvider>

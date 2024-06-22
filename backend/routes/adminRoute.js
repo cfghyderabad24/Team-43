@@ -5,6 +5,7 @@ import expressAsyncHandler from 'express-async-handler'
 import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import User from '../models/User.js'
+import Event from '../models/addEvent.js'
 
 AdminRoute.get('/getdonors', expressAsyncHandler(async (req, res) => {
     try {
@@ -20,10 +21,13 @@ AdminRoute.get('/getdonors', expressAsyncHandler(async (req, res) => {
 }))
 
 AdminRoute.post('/event',expressAsyncHandler(async(req,res)=>{
-    let event=req.body
-    const addedevent=await Event(event)
-    await addedevent.save()
-    res.send({message:"Event added successfully",addedevent})
+    try {
+        let event= await req.body
+        const addedevent= await Event.create(event)
+        res.send({message:"Event added successfully",addedevent})
+    } catch (error) {
+        console.log("error in adding event",error);
+    }
 }))
 
 
