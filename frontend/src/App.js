@@ -42,9 +42,10 @@ function App() {
         element: <Email />
       }
     ]
-  },{
-    path: 'admin',
-    element: <AdminDashboard/>
+  },
+  {
+    path: '/admin',
+    element: <AdminDashboard />
   }])
 
   return (
