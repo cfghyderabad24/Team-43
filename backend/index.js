@@ -4,7 +4,7 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import userRoute from "./routes/UserRoute.js";
 import loginRouter from "./routes/authRoute.js";
-import paymentRouter from "./routes/PaymentRoute.js"
+
 import path from 'path'
 const __dirname = import.meta.dirname;
 
@@ -24,7 +24,6 @@ app.use(express.json())
 
 app.use("/api/user", userRoute)
 app.use("/api/auth", loginRouter)
-app.use("api/payment", paymentRouter)
 
 //
 

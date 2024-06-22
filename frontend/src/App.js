@@ -8,6 +8,9 @@ import Login from './components/login/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import AuthContextProvider from './context/AuthContext/AuthContextProvider';
 import Profile from './components/profile/Profile';
+import DummyPaymentPage from './components/Payment/Payment';
+import VolunteerForm from './components/Volunteer/Volunteer';
+import Contact from './components/ContactUs/Contact';
 
 function App() {
   const browserRouter = createBrowserRouter([{
@@ -34,6 +37,18 @@ function App() {
       {
         path: '/dashboard/profile',
         element: <Profile />
+      },
+      {
+        path:'/user/checkout',
+        element:<DummyPaymentPage/>
+      },
+      {
+        path:'/volunteer/registration',
+        element:<VolunteerForm/>
+      },
+      {
+        path:'/contact',
+        element:<Contact/>
       }
     ]
   }])

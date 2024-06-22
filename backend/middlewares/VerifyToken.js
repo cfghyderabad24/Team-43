@@ -1,23 +1,28 @@
-const jwt = require('jsonwebtoken')
-require('dotenv').config()
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
-function verifyToken(req, res, next) {
-    // get bearer token from headers of req
-    const bearerToken = req.headers.authorization
-    // if bearer Token not available
+dotenv.config();
+
+const VerifyToken = (req, res, next) => {
+    // Get bearer token from headers
+    const bearerToken = req.headers.authorization;
+    
+    // Check if bearer token is not available
     if (!bearerToken) {
-        return res.send({ message: 'Unauthorized access. Please login to continue' })
+        return res.status(401).json({ message: 'Unauthorized access. Please login to continue.' });
     }
-    // extract token from bearer token
-    const token = bearerToken.split(' ')[1]
+
+    // Extract token from bearer token
+    const token = bearerToken.split(' ')[1];
+    
     try {
-        jwt.verify(token, process.env.JWT_SECRET_KEY)
-        next()
+        // Verify the token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        req.user = decoded; // Optionally store the decoded token payload in the request object for use in other middleware/routes
+        next();
+    } catch (err) {
+        return res.status(401).json({ message: 'Invalid or expired token. Please login again.' });
     }
-    catch (err) {
-        next(err)
-    }
-}
+};
 
-
-module.exports = verifyToken
+export default VerifyToken;
