@@ -8,6 +8,7 @@ import Login from './components/login/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import AuthContextProvider from './context/AuthContext/AuthContextProvider';
 import Profile from './components/profile/Profile';
+import Data from './components/navbar/data';
 
 function App() {
   const browserRouter = createBrowserRouter([{
@@ -34,6 +35,10 @@ function App() {
       {
         path: '/dashboard/profile',
         element: <Profile />
+      },
+      {
+        path: '/data',
+        element: <Data />
       }
     ]
   }])
