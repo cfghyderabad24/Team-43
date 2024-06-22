@@ -7,6 +7,7 @@ import { MdWavingHand } from "react-icons/md";
 import { useContext } from 'react';
 import profile from '../../assets/profile.png'
 import AuthContext from '../../context/AuthContext/AuthContext'
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
     const { user } = useContext(AuthContext)
@@ -45,7 +46,7 @@ const Navbar = () => {
                                 <Link to={'/login'} className={`${path === '/login' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Support</Link>
                             </li>
                             <>
-                            <Link to={'/'} className={`${path === '/' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Voulnteer drive</Link>
+                            <Link to={'/volunteer/registration'} className={`${path === '/volunteer/registration' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Voulnteer drive</Link>
                             </>
                             
                             
@@ -66,6 +67,7 @@ const Navbar = () => {
                                     <img src={localStorage.getItem('avatar') === 'undefined' ? profile : localStorage.getItem('avatar')} alt="" className='rounded-full w-12 h-12 cursor-pointer' onClick={handleProfile}/>
                                 </li>
                             </ul>
+                            <FaShoppingCart/>
                         </>
                     )
                 }

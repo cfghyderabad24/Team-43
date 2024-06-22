@@ -20,6 +20,7 @@
   "homepage": "https://github.com/chandrakanth93986/hungry-bite#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "braintree": "^3.23.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
