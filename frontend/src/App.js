@@ -11,6 +11,7 @@ import Profile from './components/profile/Profile';
 import DummyPaymentPage from './components/Payment/Payment';
 import VolunteerForm from './components/Volunteer/Volunteer';
 import Contact from './components/ContactUs/Contact';
+import Data from './components/navbar/data';
 
 function App() {
   const browserRouter = createBrowserRouter([{
@@ -49,7 +50,12 @@ function App() {
       {
         path:'/contact',
         element:<Contact/>
+      },
+      {
+        path: '/data',
+        element: <Data />
       }
+      
     ]
   }])
 
