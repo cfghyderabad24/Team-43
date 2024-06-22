@@ -5,8 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+
 import { Provider } from 'react-redux';
 import store from "./redux/store";
+
+import 'bootstrap/dist/css/bootstrap.css';
 
 // Create a root.
 const root = ReactDOM.createRoot(document.getElementById('root'));

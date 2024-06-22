@@ -32,21 +32,26 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className='bg-red-600 p-4 text-white flex justify-between items-center'>
+            <nav className='bg-blue-600 p-4 text-white flex justify-between items-center'>
                 <Link href={'/'}>
                     <div className=''>
-                        <img src={logo} width={50} height={100} alt='Logo' className='r rounded-full block m-auto' />
+                        <img src={logo} width={200} height={100} alt='Logo' className='r rounded-full block m-auto' />
                     </div>
                 </Link>
                 {
                     !token ? (
-                        <ul className='flex items-center gap-14'>
+                        <ul className='flex items-center gap-14 '>
+                            <Link to={'/data'} className={`${path === '/data' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white '}`}>WHO WE ARE</Link>
                             <li>
-                                <Link to={'/'} className={`${path === '/' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Home</Link>
+                                <Link to={'/login'} className={`${path === '/login' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Support</Link>
                             </li>
-                            <li>
-                                <Link to={'/login'} className={`${path === '/login' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Login</Link>
-                            </li>
+                            <>
+                            <Link to={'/'} className={`${path === '/' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Voulnteer drive</Link>
+                            </>
+                            
+                            
+                            
+                        
                         </ul>
                     ) : (
                         <>

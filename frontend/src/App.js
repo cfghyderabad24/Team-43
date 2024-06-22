@@ -8,11 +8,13 @@ import Login from './components/login/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import AuthContextProvider from './context/AuthContext/AuthContextProvider';
 import Profile from './components/profile/Profile';
+
 import Product from './components/product/Product';
 import Cart from "./components/Cart";
 import Home1 from "./components/Home1";
 import "./styles/home1.scss"
 import "./styles/cart.scss"
+import Data from './components/navbar/data';
 
 function App() {
   const browserRouter = createBrowserRouter([{
@@ -49,7 +51,9 @@ function App() {
       },
       {
         path: 'cart',
-        element: <Cart />
+        element: <Cart />},{
+        path: '/data',
+        element: <Data />
       }
       
     ]
