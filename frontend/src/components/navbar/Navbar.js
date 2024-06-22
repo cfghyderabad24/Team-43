@@ -45,7 +45,7 @@ const Navbar = () => {
                                 <Link to={'/login'} className={`${path === '/login' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Support</Link>
                             </li>
                             <>
-                            <Link to={'/'} className={`${path === '/' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Voulnteer drive</Link>
+                            <Link to={'/volunteer/registration'} className={`${path === '/volunteer/registration' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Voulnteer drive</Link>
                             </>
                             
                             
