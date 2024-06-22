@@ -6,7 +6,7 @@ import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import User from '../models/User.js'
 
-AdminRoute.get('/getdonors',verifyToken, expressAsyncHandler(async (req, res) => {
+AdminRoute.get('/getdonors', expressAsyncHandler(async (req, res) => {
     try {
         const donors = await User.find({})
         if (!donors) {
@@ -19,7 +19,12 @@ AdminRoute.get('/getdonors',verifyToken, expressAsyncHandler(async (req, res) =>
     }
 }))
 
-
+AdminRoute.post('/event',expressAsyncHandler(async(req,res)=>{
+    let event=req.body
+    const addedevent=await Event(event)
+    await addedevent.save()
+    res.send({message:"Event added successfully",addedevent})
+}))
 
 
 export default AdminRoute

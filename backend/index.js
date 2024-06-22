@@ -6,6 +6,7 @@ import userRoute from "./routes/UserRoute.js";
 import loginRouter from "./routes/authRoute.js";
 import sendEmail from "./utils/sendEmail.js";
 import path from 'path'
+import AdminRoute from "./routes/adminRoute.js";
 const __dirname = import.meta.dirname;
 
 const app = express()
@@ -24,6 +25,7 @@ app.use(express.json())
 
 app.use("/api/user", userRoute)
 app.use("/api/auth", loginRouter)
+app.use('/api/admin',AdminRoute)
 
 
 app.post("/api/payment/sendemail", async (req, res) => {

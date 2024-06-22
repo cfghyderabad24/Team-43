@@ -9,6 +9,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import AuthContextProvider from './context/AuthContext/AuthContextProvider';
 import Profile from './components/profile/Profile';
 import Email from './components/email/Email';
+import AdminDashboard from './components/admindashboard/AdminDashboard'
 
 function App() {
   const browserRouter = createBrowserRouter([{
@@ -41,6 +42,9 @@ function App() {
         element: <Email />
       }
     ]
+  },{
+    path: 'admin',
+    element: <AdminDashboard/>
   }])
 
   return (
