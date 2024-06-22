@@ -74,6 +74,5 @@ userRoute.get('/products',verifyToken,expressAsyncHandler(async (req, res) => {
     return res.status(200).json({ message: "All products", products })
 }))
 
-userRoute
 
 export default userRoute

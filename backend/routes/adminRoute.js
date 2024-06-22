@@ -1,6 +1,6 @@
 import express from 'express'
 const AdminRoute = express.Router()
-import User from '../models/admin.js'
+import Admin from '../models/admin.js'
 import expressAsyncHandler from 'express-async-handler'
 import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
