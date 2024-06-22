@@ -31,7 +31,8 @@ function AdminDashboard() {
     console.log(response);
   }
 
-  const eventHistory = async () => {
+  const eventHistory = async (e) => {
+    e.preventDefault()
     // const response = await axios.get('http://localhost:8000/api/admin/event')
     navigate('/admin/event')
     console.log("history");
@@ -42,7 +43,7 @@ function AdminDashboard() {
       <div>
         <div className='flex justify-around items-center m-2'>
           <h1 className='text-6xl text-red-600 text-center my-2 font-serif hover:text-amber-400 animate-pulse'>Event-Management</h1>
-          <h1 className='text-3xl text-red-600 bg-amber-300 p-3 px-5 rounded-md cursor-pointer' onClick={eventHistory}>History of Events</h1>
+          <h1 className='text-3xl text-red-600 bg-amber-300 p-3 px-5 rounded-md cursor-pointer' onClick={(e) => eventHistory(e)}>History of Events</h1>
         </div>
         <div className='w-full my-10 flex flex-col gap-5 md:flex-row items-center'>
           <div className='w-[75%] md:w-[50%] p-10 flex md:justify-end justify-center'>

@@ -11,6 +11,7 @@ import Profile from './components/profile/Profile';
 import Email from './components/email/Email';
 import AdminDashboard from './components/admindashboard/AdminDashboard'
 import EventHistory from './components/eventHistory/EventHistory';
+import UserSupportHistory from './components/userSupportHistory/UserSupportHistory';
 
 function App() {
   const browserRouter = createBrowserRouter([{
@@ -41,6 +42,10 @@ function App() {
       {
         path: '/payment/email',
         element: <Email />
+      },
+      {
+        path: '/support-history',
+        element: <UserSupportHistory />
       }
     ]
   },
