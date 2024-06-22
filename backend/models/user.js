@@ -1,4 +1,5 @@
 import mongoose, {Schema} from 'mongoose'
+// import Product from './product.js'
 
 const userSchema = new Schema({
     username: {
@@ -18,7 +19,13 @@ const userSchema = new Schema({
     },
     avatar: {
         type: String
-    }
+    },
+    orders:[
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Product"
+        }
+    ]
 });
 
 const User = mongoose.model("User", userSchema)
