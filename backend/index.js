@@ -4,6 +4,7 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import userRoute from "./routes/UserRoute.js";
 import loginRouter from "./routes/authRoute.js";
+
 import path from 'path'
 const __dirname = import.meta.dirname;
 

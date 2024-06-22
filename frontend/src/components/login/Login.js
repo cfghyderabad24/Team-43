@@ -30,7 +30,7 @@ const Login = () => {
                     
                     setUser(response.data?.userCred)
                     resolve()
-                    navigate('/dashboard')
+                    navigate('/home1')
                 }
             } catch (error) {
                 console.log(error)
