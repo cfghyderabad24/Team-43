@@ -104,7 +104,7 @@ return (
                             {/* <img src="https://cdn4.iconfinder.com/data/icons/gamification-flat/64/learning-idea-knowledge-solve-experience-512.png" className='logo2 pic'></img> */}
                             <h5 className="card-title bg-dark text-white fs-3 oo rounded-2">Aim</h5>
                             <p className="card-text text-dark justify-content-center ">
-                            Our website aims to empower individuals by offering sustainable and affordable menstrual hygiene solutions through cloth pads and menstrual cups. We strive to promote menstrual health awareness, eco-friendly choices, and accessibility to reliable products for all beneficiaries. Our platform serves as a resource hub, providing education, product information, and support to encourage sustainable menstruation practices and improve overall well-being.
+                            Our website aims to empower individuals by offering sustainable and affordable menstrual hygiene solutions through cloth pads and menstrual cups. We strive to promote menstrual health awareness, eco-friendly choices, and accessibility to reliable products for all beneficiaries. Our platform serves as a resource hub, providing education, product information, and support to encourage sustainable menstruation practices and improve overall well-being. 
                             </p>
                         </div>
                     </div>
