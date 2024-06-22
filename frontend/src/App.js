@@ -15,6 +15,7 @@ import Home1 from "./components/Home1";
 import "./styles/home1.scss"
 import "./styles/cart.scss"
 import Data from './components/navbar/data';
+import OrderHistoryComponent from "./components/orderHistory"
 
 function App() {
   const browserRouter = createBrowserRouter([{
@@ -54,6 +55,10 @@ function App() {
         element: <Cart />},{
         path: '/data',
         element: <Data />
+      },
+      {
+        path:'history',
+        element:<OrderHistoryComponent/>
       }
       
     ]
@@ -71,7 +76,7 @@ function App() {
 export default App;
 
 
-
-
+// @chakra-ui/react 
+// npm i react-countup react-slick
 
 
