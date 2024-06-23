@@ -64,6 +64,7 @@ const Login = () => {
                 >
                     <div className="text-center mb-5 flex flex-col justify-center items-center">
                         <h1 className="text-3xl text-white">Login</h1>
+                        <img src={logo} alt='logo' className=' w-24 h-24 rounded-full' />
                     </div>
                     <div>
                         <div className="flex flex-col gap-1 mb-3">
@@ -99,7 +100,7 @@ const Login = () => {
                                 Login
                             </button>
                         </div>
-                        <div className="my-5 flex items-center justify-between">
+                        <div className="my-3 flex items-center justify-between">
                             <div className="h-0.5 bg-white w-[25%]">
                             </div>
                             <p className="text-center">OR</p>
@@ -111,6 +112,9 @@ const Login = () => {
                         >
                             Login With Google
                         </button>
+                        <div>
+                            <p className="text-center mt-3">Don't have an account? <a href="/register" className="text-amber-400">Register</a></p>
+                        </div>
                     </div>
                 </form>
             </div>

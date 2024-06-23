@@ -77,10 +77,10 @@ const Cart = () => {
           <h2 style={styles.detailText}>Subtotal: Rs. {Subtotal}</h2>
           <hr style={styles.hr} />
         </div>
-        <div style={styles.priceDetail}>
+        {/* <div style={styles.priceDetail}>
           <h2 style={styles.detailText}>Shipping: Rs. {Shipping}</h2>
           <hr style={styles.hr} />
-        </div>
+        </div> */}
         <div style={styles.priceDetail}>
           <h2 style={styles.detailText}>Tax: Rs. {Tax}</h2>
           <hr style={styles.hr} />

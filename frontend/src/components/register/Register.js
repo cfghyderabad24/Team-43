@@ -44,10 +44,10 @@ const Register = () => {
                 {
                     err.length > 0 && <p className='text-red-500 text-center mb-4 text-xl'>{err}</p>
                 }
-                <form onSubmit={handleSubmit(handleFormSubmit)} className='b min-w-96 min-h-[50%] bg-green-700 text-white p-8 rounded-xl w-[25%]'>
-                    <div className='text-center mb-5'>
-                        <img src={logo} width={150} height={150} alt='Logo' className='r rounded-full block m-auto' />
-                        <h1 className='text-3xl text-yellow-400'>Register</h1>
+                <form onSubmit={handleSubmit(handleFormSubmit)} className='b min-w-96 min-h-[50%] bg-gray-900 text-white p-8 rounded-xl w-[25%]'>
+                    <div className='text-center mb-5 flex flex-col items-center gap-2'>
+                        <h1 className='text-3xl text-white'>Register</h1>
+                        <img src={logo} alt='logo' className=' w-24 h-24 rounded-full' />
                     </div>
                     <div>
                         <div className='flex flex-col gap-1 mb-3'>
@@ -78,7 +78,10 @@ const Register = () => {
                             {errors.password?.type === 'required' && (<p className='text-amber-400'>*Password is Required!</p>)}
                         </div>
                         <div className='text-center mt-8'>
-                            <button type="submit" className='px-4 py-2 bg-amber-400 text-green-700 rounded-md'>Register</button>
+                            <button type="submit" className='px-4 py-2 bg-white text-gray-900 rounded-md'>Register</button>
+                        </div>
+                        <div>
+                            <p className='text-center mt-8'>Already have an account? <button onClick={() => navigate('/login')} className='text-amber-400 underline'>Login</button></p>
                         </div>
                     </div>
                 </form>

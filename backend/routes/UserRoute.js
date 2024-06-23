@@ -6,6 +6,7 @@ import expressAsyncHandler from 'express-async-handler'
 import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import verifyToken from '../middlewares/VerifyToken.js'
+import { spawn } from 'child_process';
 
 userRoute.post("/register", expressAsyncHandler(async (req, res) => {
     try {
@@ -74,6 +75,38 @@ userRoute.get('/products',verifyToken,expressAsyncHandler(async (req, res) => {
     return res.status(200).json({ message: "All products", products })
 }))
 
-userRoute
+
+userRoute.post('/latlong',verifyToken, expressAsyncHandler(async (req, res) => {
+    const address = req.body.add;
+    console.log(address);
+    if (!address) {
+        return res.status(400).json({ message: "Address not provided" });
+    }
+
+    const pythonProcess = spawn('python', ['./python/location.py', address]);
+
+    pythonProcess.stdout.on('data', (data) => {
+        const output = data.toString().trim();
+        const [latitude, longitude] = output.split(',');
+        if (latitude && longitude) {
+            return res.status(200).json({ latitude, longitude });
+        } else {
+            return res.status(404).json({ message: "Location not found" });
+        }
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+        return res.status(500).json({ message: "Error getting location" });
+    });
+
+    pythonProcess.on('close', (code) => {
+        if (code !== 0) {
+            console.log(`python process exited with code ${code}`);
+            return res.status(500).json({ message: "Error getting location" });
+        }
+    });
+}))
+
 
 export default userRoute

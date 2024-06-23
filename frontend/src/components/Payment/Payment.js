@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCreditCard, faMoneyCheckAlt, faWallet } from '@fortawesome/free-solid-svg-icons';
+import { faCcVisa, faCcMastercard, faCcAmex, faCcDiscover, faGooglePay, faApplePay, faPaypal } from '@fortawesome/free-brands-svg-icons';
+import axios from 'axios';
 
 const DummyPaymentPage = () => {
     const [cardNumber, setCardNumber] = useState('');
@@ -14,6 +18,17 @@ const DummyPaymentPage = () => {
 
     const { Total } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
+
+
+    const handleMail = async() => {
+        const email = localStorage.getItem('email')
+
+        const response = await axios.post(
+            "http://localhost:8000/api/payment/sendemail",
+            {email}
+        );
+        console.log(response.email);
+    }
 
     const handlePayment = (e) => {
         e.preventDefault();
@@ -31,39 +46,39 @@ const DummyPaymentPage = () => {
             <form className="payment-form" onSubmit={handlePayment}>
                 <div className="form-group">
                     <label>Card Number</label>
-                    <input 
-                        type="text" 
-                        value={cardNumber} 
-                        onChange={(e) => setCardNumber(e.target.value)} 
+                    <input
+                        type="text"
+                        value={cardNumber}
+                        onChange={(e) => setCardNumber(e.target.value)}
                         placeholder="1234 5678 9012 3456"
-                        required 
+                        required
                     />
                 </div>
                 <div className="form-group">
                     <label>Expiry Date</label>
-                    <input 
-                        type="text" 
-                        value={expiryDate} 
-                        onChange={(e) => setExpiryDate(e.target.value)} 
-                        placeholder="MM/YY" 
-                        required 
+                    <input
+                        type="text"
+                        value={expiryDate}
+                        onChange={(e) => setExpiryDate(e.target.value)}
+                        placeholder="MM/YY"
+                        required
                     />
                 </div>
                 <div className="form-group">
                     <label>CVV</label>
-                    <input 
-                        type="text" 
-                        value={cvv} 
-                        onChange={(e) => setCvv(e.target.value)} 
+                    <input
+                        type="text"
+                        value={cvv}
+                        onChange={(e) => setCvv(e.target.value)}
                         placeholder="123"
-                        required 
+                        required
                     />
                 </div>
                 <div className="form-group">
                     <label>Amount</label>
                     ₹{Total}
                 </div>
-                <button type="submit" className="pay-button">Pay Now</button>
+                <button onClick={handleMail} type="submit" className="pay-button">Pay Now</button>
             </form>
             <ToastContainer /> {/* ToastContainer for Toastify */}
         </div>

@@ -8,6 +8,10 @@ import Login from './components/login/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import AuthContextProvider from './context/AuthContext/AuthContextProvider';
 import Profile from './components/profile/Profile';
+import Email from './components/email/Email';
+import AdminDashboard from './components/admindashboard/AdminDashboard'
+import EventHistory from './components/eventHistory/EventHistory';
+import UserSupportHistory from './components/userSupportHistory/UserSupportHistory';
 import DummyPaymentPage from './components/Payment/Payment';
 import VolunteerForm from './components/Volunteer/Volunteer';
 import Contact from './components/ContactUs/Contact';
@@ -46,6 +50,14 @@ function App() {
         element: <Profile />
       },
       {
+        path: '/payment/email',
+        element: <Email />
+      },
+      {
+        path: '/support-history',
+        element: <UserSupportHistory />
+      },
+      {
         path:'/user/checkout',
         element:<DummyPaymentPage/>
       },
@@ -78,7 +90,16 @@ function App() {
       
       
     ]
-  }])
+  },
+  {
+    path: 'admin',
+    element: <AdminDashboard />,
+  },
+  {
+    path: 'admin/event',
+    element: <EventHistory />
+  }
+  ])
 
   return (
     <AuthContextProvider>
