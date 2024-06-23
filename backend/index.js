@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import userRoute from "./routes/UserRoute.js";
 import loginRouter from "./routes/authRoute.js";
 import sendEmail from "./utils/sendEmail.js";
+
 import path from 'path'
 import AdminRoute from "./routes/adminRoute.js";
 const __dirname = import.meta.dirname;
