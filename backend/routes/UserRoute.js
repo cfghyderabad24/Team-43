@@ -76,7 +76,7 @@ userRoute.get('/products',verifyToken,expressAsyncHandler(async (req, res) => {
 }))
 
 userRoute.post('/latlong',verifyToken, expressAsyncHandler(async (req, res) => {
-    const address = req.body;
+    const address = req.body.add;
     if (!address) {
         return res.status(400).json({ message: "Address not provided" });
     }

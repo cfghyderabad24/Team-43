@@ -8,7 +8,7 @@ const UserSupportHistory = () => {
     try {
       const add = localStorage.getItem('address')
       console.log(add);
-      const response = await axiosWithToken.post("http://localhost:8000/api/user/latlong", add)
+      const response = await axiosWithToken.post("http://localhost:8000/api/user/latlong", {add})
       console.log(response);
     } catch (error) {
       console.log(error);
