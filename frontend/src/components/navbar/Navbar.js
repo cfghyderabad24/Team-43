@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/logo.png';
@@ -33,7 +32,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className='bg-blue-600 p-4 text-white flex justify-between items-center'>
+            <nav className='bg-gray-900 p-4 text-white flex justify-between items-center'>
                 <Link to={'/'}>
                     <div className='flex items-center'>
                         <img src={logo} width={200} height={100} alt='Logo' className='rounded-full block' />
@@ -53,11 +52,11 @@ const Navbar = () => {
                 {
                     !token ? (
                         <ul className='flex items-center gap-14'>
-                            <Link to={'/data'} className={`${path === '/data' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>WHO WE ARE</Link>
+                            <Link to={'/data'} className={`${path === '/data' ? 'rounded-lg bg-white text-gray-800 border px-4 py-2' : 'text-white'}`}>WHO WE ARE</Link>
                             <li>
-                                <Link to={'/login'} className={`${path === '/login' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Support</Link>
+                                <Link to={'/login'} className={`${path === '/login' ? 'rounded-lg bg-white text-gray-800 border px-4 py-2' : 'text-white'}`}>Support</Link>
                             </li>
-                            <Link to={'/volunteer/registration'} className={`${path === '/volunteer/registration' ? 'rounded-lg bg-white text-red-600 border px-4 py-2' : 'text-white'}`}>Volunteer drive</Link>
+                            <Link to={'/volunteer/registration'} className={`${path === '/volunteer/registration' ? 'rounded-lg bg-white text-gray-800 border px-4 py-2' : 'text-white'}`}>Volunteer drive</Link>
                         </ul>
                     ) : (
                         <>
@@ -67,7 +66,7 @@ const Navbar = () => {
                                     &nbsp;&nbsp; <span className='text-amber-300 text-3xl font-serif'>{localStorage.getItem('username')}</span>
                                 </li>
                                 <li>
-                                    <button onClick={handleSignOut} className={'rounded-lg bg-white text-red-600 border px-4 py-2'}>Logout</button>
+                                    <button onClick={handleSignOut} className={'rounded-lg bg-white text-red-600 border px-4 py-2 hover:text-gray-800 hover:bg-gray-200 hover:border-gray-800 hover:border-2'}>Logout</button>
                                 </li>
                                 <li>
                                     <img src={localStorage.getItem('avatar') === 'undefined' ? profile : localStorage.getItem('avatar')} alt="" className='rounded-full w-12 h-12 cursor-pointer' onClick={handleProfile} />

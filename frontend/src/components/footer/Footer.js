@@ -4,9 +4,16 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div>
+
             <footer className="bg-blue-600 text-white">
                 <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center gap-30">
                     <span className="text-sm sm:text-center dark:text-white">
+
+            <footer className="bg-gray-900 text-white">
+                <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+                    <span className="text-sm sm:text-center dark:text-white
+                    ">
+
                         © 2024{" "}
                         <Link to="/" className="hover:underline">
                             Good Universe

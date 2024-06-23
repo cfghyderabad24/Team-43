@@ -56,21 +56,14 @@ const Login = () => {
         <div className=''>
             <div className='h-screen flex flex-col items-center justify-center mx-auto md:mx-4'>
                 {
-                    err?.length > 0 && <p className='text-red-500 text-center mb-4 text-xl'>{err}</p>
+                    err?.length > 0 && <p className='text-white text-center mb-4 text-xl'>{err}</p>
                 }
                 <form
                     onSubmit={handleSubmit(handleFormSubmit)}
-                    className="b min-w-96 min-h-[50%] bg-red-600 text-white p-8 rounded-xl w-[25%]"
+                    className="b min-w-96 min-h-[50%] bg-gray-900 text-white p-8 rounded-xl w-[25%]"
                 >
-                    <div className="text-center mb-5">
-                        <img
-                            src={logo}
-                            width={150}
-                            height={150}
-                            alt="Logo"
-                            className="r rounded-full block m-auto"
-                        />
-                        <h1 className="text-3xl text-yellow-300">Login</h1>
+                    <div className="text-center mb-5 flex flex-col justify-center items-center">
+                        <h1 className="text-3xl text-white">Login</h1>
                     </div>
                     <div>
                         <div className="flex flex-col gap-1 mb-3">
@@ -82,7 +75,7 @@ const Login = () => {
                                 {...register("email", { required: true })}
                             />
                             {errors.email?.type === "required" && (
-                                <p className="text-amber-200">*Email/Username is required!</p>
+                                <p className="text-red-400">*Email/Username is required!</p>
                             )}
                         </div>
 
@@ -95,13 +88,13 @@ const Login = () => {
                                 {...register("password", { required: true })}
                             />
                             {errors.password?.type === "required" && (
-                                <p className="text-amber-200">*Password is Required!</p>
+                                <p className="text-red-400">*Password is Required!</p>
                             )}
                         </div>
                         <div className="text-center mt-8">
                             <button
                                 type="submit"
-                                className="px-4 py-2 bg-amber-300 text-red-600 rounded-md"
+                                className="px-4 py-2 bg-white text-black rounded-md"
                             >
                                 Login
                             </button>
@@ -114,7 +107,7 @@ const Login = () => {
                             </div>
                         </div>
                         <button
-                            className="px-4 py-2 bg-amber-300 text-red-600 rounded-md block mx-auto"
+                            className="px-4 py-2 bg-white text-black rounded-md block mx-auto"
                         >
                             Login With Google
                         </button>
