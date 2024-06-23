@@ -83,7 +83,7 @@ userRoute.post('/latlong',verifyToken, expressAsyncHandler(async (req, res) => {
         return res.status(400).json({ message: "Address not provided" });
     }
 
-    const pythonProcess = spawn('python', ['E:/Projects/Team-43/backend/python/location.py', address]);
+    const pythonProcess = spawn('python', ['./python/location.py', address]);
 
     pythonProcess.stdout.on('data', (data) => {
         const output = data.toString().trim();
