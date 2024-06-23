@@ -1,35 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AiFillDelete } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addToCart, delFromCart, removeFromCart, addtolocalstorage, calculatePrice } from '../redux/cartAction.jsx';
+import { addToCart, delFromCart, removeFromCart, addtolocalstorage, calculatePrice } from '../redux/cartAction';
 
 const Cart = () => {
   const { cartItems, Subtotal, Shipping, Tax, Total } = useSelector((state) => state.cart);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // State to hold the total price
+  const [totalPrice, setTotalPrice] = useState(Total);
 
   const increment = (id) => {
     dispatch(addToCart({ id }));
     dispatch(calculatePrice());
     dispatch(addtolocalstorage());
+    updateTotalPrice();
   };
 
   const decrement = (id) => {
     dispatch(delFromCart(id));
     dispatch(calculatePrice());
     dispatch(addtolocalstorage());
+    updateTotalPrice();
   };
 
   const deletee = (id) => {
     dispatch(removeFromCart({ id }));
     dispatch(calculatePrice());
     dispatch(addtolocalstorage());
+    updateTotalPrice();
   };
 
   const handlePayment = () => {
+    // Navigate to the payment form page
     navigate('/user/checkout');
+
+    // Optionally, you can update the total price state here as well
+    setTotalPrice(Total);
+  };
+
+  // Function to update the total price after each cart update
+  const updateTotalPrice = () => {
+    setTotalPrice(Total);
   };
 
   return (

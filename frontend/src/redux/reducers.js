@@ -52,7 +52,7 @@ const initialState = {
         let sum=0;
         state.cartItems.forEach((i) => (sum += (i.price * i.qty)));
         state.Subtotal = sum;
-        state.Shipping = ( sum < 1000) ? 0 : 2000;
+        state.Shipping = 0;
         state.Tax = +(state.Subtotal * 0.18).toFixed();
         state.Total = state.Subtotal + state.Shipping + state.Tax;
         console.log(state.Subtotal);

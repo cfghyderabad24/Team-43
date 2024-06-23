@@ -3,16 +3,15 @@ import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, calculatePrice, addtolocalstorage } from '../redux/cartAction';
 import { FiShoppingCart } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Home1 = () => {
   const { cartItems } = useSelector(state => state.cart);
-  const img1 = "https://cdn.shopify.com/s/files/1/0649/8494/0772/files/Menstrual-cup-sizes.jpg?v=1660705302";
-  const img2 = "https://www.india.com/wp-content/uploads/2017/04/reusable-cloth-pads.jpg";
+  const navigate = useNavigate();
 
   const productList = [
     {
-      imgSrc: img1,
+      imgSrc: "https://cdn.shopify.com/s/files/1/0649/8494/0772/files/Menstrual-cup-sizes.jpg?v=1660705302",
       name: 'Silicon Menstrual Cup',
       price: 699,
       description: 'A menstrual cup is a flexible, bell-shaped cup made typically from medical-grade silicone or latex rubber. It is designed to collect menstrual fluid rather than absorb it, offering a modern and sustainable alternative to traditional menstrual products.',
@@ -20,7 +19,7 @@ const Home1 = () => {
       id: 'tytyt'
     },
     {
-      imgSrc: img2,
+      imgSrc: "https://www.india.com/wp-content/uploads/2017/04/reusable-cloth-pads.jpg",
       name: 'Cloth Pads',
       price: 399,
       description: 'Cloth pads are eco-friendly and reusable menstrual products made from breathable, often organic materials like cotton or bamboo. They offer a sustainable alternative to disposable pads, contributing significantly to reducing waste and environmental impact.',
@@ -36,6 +35,9 @@ const Home1 = () => {
     dispatch(addtolocalstorage());
     dispatch(calculatePrice());
     toast.success("Added to Cart");
+
+    // Navigate to the '/cart' route after adding to cart
+    navigate('/cart');
   };
 
   return (
@@ -68,8 +70,8 @@ const ProductCard = ({ name, id, price, description, durability, handler, imgSrc
     <h4 style={styles.productPrice}>Cost: Rs. {price}</h4>
     <p style={styles.productDescription}>{description}</p>
     <p style={styles.productDurability}>Durability: {durability} years</p>
-`    <button onClick={() => handler({ name, price, id, qty: 1, imgSrc })} style={styles.addButton}>
-`      Add to Cart
+    <button onClick={() => handler({ name, price, id, qty: 1, imgSrc })} style={styles.addButton}>
+      Add to Cart
     </button>
   </div>
 );
@@ -98,8 +100,8 @@ const styles = {
     borderRadius: '8px',
     display: 'block',
     margin: '0 auto',
-    maxHeight: '300px',  
-    objectFit: 'cover',  
+    maxHeight: '300px',
+    objectFit: 'cover',
   },
   productName: {
     margin: '10px 0',
