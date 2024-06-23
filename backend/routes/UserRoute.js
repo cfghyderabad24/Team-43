@@ -75,8 +75,7 @@ userRoute.get('/products',verifyToken,expressAsyncHandler(async (req, res) => {
     return res.status(200).json({ message: "All products", products })
 }))
 
-userRoute.post('/latlong',verifyToken, expressAsyncHandler(async (req, res) => {
-    const address = req.body.add;
+
 userRoute.post('/latlong', expressAsyncHandler(async (req, res) => {
     const address = req.body.add;
     console.log(address);
@@ -107,7 +106,7 @@ userRoute.post('/latlong', expressAsyncHandler(async (req, res) => {
             return res.status(500).json({ message: "Error getting location" });
         }
     });
-}));
+}))
 
 
 export default userRoute
