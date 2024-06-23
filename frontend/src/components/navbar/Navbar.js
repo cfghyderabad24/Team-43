@@ -52,11 +52,11 @@ const Navbar = () => {
                 {
                     !token ? (
                         <ul className='flex items-center justify-center gap-14'>
-                            <Link to={'/data'} className={`${path === '/data' ? 'rounded-lg bg-white text-gray-800 border px-4 py-2' : 'text-white'}`}>WHO WE ARE</Link>
+                            <Link to={'/data'} className={`${path === '/data' ? 'rounded-lg bg-white text-gray-800 border px-4 py-2 no-underline' : 'text-white'}`}>WHO ARE WE?</Link>
                             <li>
-                                <Link to={'/login'} className={`${path === '/login' ? 'rounded-lg bg-white text-gray-800 border px-4 py-2' : 'text-white'}`}>Support</Link>
+                                <Link to={'/login'} className={`${path === '/login' ? 'rounded-lg bg-white text-gray-800 border px-4 py-2 no-underline' : 'text-white no-underline'}`}>Support</Link>
                             </li>
-                            <Link to={'/volunteer/registration'} className={`${path === '/volunteer/registration' ? 'rounded-lg bg-white text-gray-800 border px-4 py-2' : 'text-white'}`}>Volunteer drive</Link>
+                            <Link to={'/volunteer/registration'} className={`${path === '/volunteer/registration' ? 'rounded-lg bg-white text-gray-800 border px-4 py-2 no-underline' : 'text-white no-underline'}`}>Volunteer drive</Link>
                         </ul>
                     ) : (
                         <>
