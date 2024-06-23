@@ -76,7 +76,7 @@ userRoute.get('/products',verifyToken,expressAsyncHandler(async (req, res) => {
 }))
 
 
-userRoute.post('/latlong', expressAsyncHandler(async (req, res) => {
+userRoute.post('/latlong',verifyToken, expressAsyncHandler(async (req, res) => {
     const address = req.body.add;
     console.log(address);
     if (!address) {
