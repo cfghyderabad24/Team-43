@@ -42,7 +42,7 @@ app.post("/api/payment/sendemail", async (req, res) => {
           <p>Payment Successful!</p>
           <p>Regards...</p>
       `;
-  
+        console.log(email);
       await sendEmail(subject, message, send_to, sent_from, reply_to);
       res.status(200).json({ success: true, message: "Email Sent" });
     } catch (error) {

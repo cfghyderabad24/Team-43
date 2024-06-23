@@ -32,11 +32,11 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className='bg-gray-900 p-4 text-white flex justify-between items-center'>
+            <nav className='bg-gray-900 p-3 text-white flex justify-between items-center'>
                 <Link to={'/'}>
-                    <div className='flex items-center'>
-                        <img src={logo} width={200} height={100} alt='Logo' className='rounded-full block' />
-                        <span className='ml-4 text-4xl font-bold text-white'>
+                    <div className='flex items-center gap-3'>
+                        <img src={logo} width={60} alt='Logo' className='rounded-full block' />
+                        <span className='text-4xl font-bold text-white'>
                             <Typewriter
                                 words={['Good Universe']}
                                 loop={1}
@@ -51,7 +51,7 @@ const Navbar = () => {
                 </Link>
                 {
                     !token ? (
-                        <ul className='flex items-center gap-14'>
+                        <ul className='flex items-center justify-center gap-14'>
                             <Link to={'/data'} className={`${path === '/data' ? 'rounded-lg bg-white text-gray-800 border px-4 py-2' : 'text-white'}`}>WHO WE ARE</Link>
                             <li>
                                 <Link to={'/login'} className={`${path === '/login' ? 'rounded-lg bg-white text-gray-800 border px-4 py-2' : 'text-white'}`}>Support</Link>
