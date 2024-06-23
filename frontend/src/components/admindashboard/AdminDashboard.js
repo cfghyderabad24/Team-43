@@ -14,6 +14,16 @@ function AdminDashboard() {
   const [address, setAddress] = useState('')
   const navigate = useNavigate();
 
+  const updateEmail = async () => {
+    const email = localStorage.getItem('email')
+
+    const response = await axios.post(
+      "http://localhost:8000/api/payment/sendemail",
+      { email }
+    );
+    console.log(response.email);
+  }
+
   const updateData = async (e) => {
     e.preventDefault()
     console.log(avatar);
@@ -42,12 +52,12 @@ function AdminDashboard() {
     <div>
       <div>
         <div className='flex justify-around items-center m-2'>
-          <h1 className='text-6xl text-red-600 text-center my-2 font-serif hover:text-amber-400 animate-pulse'>Event-Management</h1>
-          <h1 className='text-3xl text-red-600 bg-amber-300 p-3 px-5 rounded-md cursor-pointer' onClick={(e) => eventHistory(e)}>History of Events</h1>
+          <h1 className='text-6xl text-gray-900 text-center my-2 font-serif hover:text-amber-400'>Event-Management</h1>
+          <h1 className='text-3xl text-gray-900 bg-amber-300 p-3 px-5 rounded-md cursor-pointer' onClick={(e) => eventHistory(e)}>History of Events</h1>
         </div>
         <div className='w-full my-10 flex flex-col gap-5 md:flex-row items-center'>
           <div className='w-[75%] md:w-[50%] p-10 flex md:justify-end justify-center'>
-            <form className='bg-red-600 p-10 md:w-[75%] w-full rounded-lg'>
+            <form className='bg-gray-900 p-10 md:w-[75%] w-full rounded-lg'>
               <div className="mb-6">
                 <label htmlFor="eventname" className="block mb-2 text-lg font-medium text-white">Event-Name</label>
                 <input type="text" id="eventname" className='rounded-md w-full p-2 text-black' onChange={(e) => setEventname(e.target?.value)} value={eventname} />
@@ -64,10 +74,13 @@ function AdminDashboard() {
                 <label htmlFor="pin" className="block mb-2 text-lg font-medium text-white">pin</label>
                 <input type="text" id="pin" className='rounded-md w-full p-2 text-black' onChange={(e) => setPin(e.target?.value)} value={pin} />
               </div>
-              <div className='mt-12 w-full'>
+              <div className='mt-12 w-full flex gap-2'>
                 <button type='submit'
                   onClick={(e) => updateData(e)}
-                  className='w-full px-4 py-2 bg-amber-300 text-red-600 rounded-md block mx-auto'>Update Event</button>
+                  className='w-full px-4 py-2 bg-amber-300 text-gray-900 rounded-md block mx-auto'>Update Event</button>
+                <button type='submit'
+                  onClick={updateEmail}
+                  className='w-full px-4 py-2 bg-amber-300 text-gray-900 rounded-md block mx-auto'>Send Mail</button>
               </div>
             </form>
           </div>

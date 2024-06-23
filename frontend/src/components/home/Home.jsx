@@ -229,7 +229,7 @@ function Home() {
 
             </div>
             <br />
-            <h1>
+            <h1 className="text-center">
                 TESTIMONIALS
             </h1>
             <div className="carousel-container">
@@ -246,7 +246,7 @@ function Home() {
             <br />
             <br />
             <br />
-            <h1>PARTNERS AND SUPPORTERS </h1>
+            <h1 className="flex items-center justify-center">PARTNERS AND SUPPORTERS </h1>
             <div style={{
                 fontFamily: 'Arial, sans-serif',
                 backgroundColor: '#f8f9fa',

@@ -66,13 +66,12 @@ const Navbar = () => {
                                     &nbsp;&nbsp; <span className='text-amber-300 text-3xl font-serif'>{localStorage.getItem('username')}</span>
                                 </li>
                                 <li>
-                                    <button onClick={handleSignOut} className={'rounded-lg bg-white text-red-600 border px-4 py-2 hover:text-gray-800 hover:bg-gray-200 hover:border-gray-800 hover:border-2'}>Logout</button>
+                                    <button onClick={handleSignOut} className={'rounded-lg bg-white text-gray-900 border px-4 py-2 hover:text-gray-800 hover:bg-gray-200 hover:border-gray-800 hover:border-2'}>Logout</button>
                                 </li>
                                 <li>
                                     <img src={localStorage.getItem('avatar') === 'undefined' ? profile : localStorage.getItem('avatar')} alt="" className='rounded-full w-12 h-12 cursor-pointer' onClick={handleProfile} />
                                 </li>
                             </ul>
-                            <FaShoppingCart className='ml-4' />
                         </>
                     )
                 }

@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard, faMoneyCheckAlt, faWallet } from '@fortawesome/free-solid-svg-icons';
 import { faCcVisa, faCcMastercard, faCcAmex, faCcDiscover, faGooglePay, faApplePay, faPaypal } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const DummyPaymentPage = () => {
     const [cardNumber, setCardNumber] = useState('');
@@ -11,6 +13,7 @@ const DummyPaymentPage = () => {
     const [cvv, setCvv] = useState('');
     const [amount, setAmount] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate()
 
 
     const handleMail = async() => {
@@ -27,6 +30,8 @@ const DummyPaymentPage = () => {
         e.preventDefault();
         // Dummy payment processing
         setMessage(`Payment of $${amount} was successful!`);
+        toast.success("Payment Successful!");
+        navigate('/track-order')
     };
 
     return (
