@@ -17,6 +17,7 @@ import Cart from "./components/Cart";
 import Home1 from "./components/Home1";
 import "./styles/home1.scss"
 import "./styles/cart.scss"
+import TrackOrder from './components/TrackOrder/TrackOrder';
 
 function App() {
   const browserRouter = createBrowserRouter([{
@@ -69,7 +70,12 @@ function App() {
       {
         path: 'cart',
         element: <Cart />
+      },
+      {
+        path:'track-order',
+        element:<TrackOrder/>
       }
+      
       
     ]
   }])
