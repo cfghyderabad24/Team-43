@@ -118,7 +118,7 @@ return (
         </div>
         </div>
         <div className="container">
-            <div className="circles">
+            <div className="circles gap-16">
                 <div className="circle">
                     <CountUp
                         start={0}
