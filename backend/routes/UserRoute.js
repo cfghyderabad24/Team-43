@@ -75,13 +75,14 @@ userRoute.get('/products',verifyToken,expressAsyncHandler(async (req, res) => {
     return res.status(200).json({ message: "All products", products })
 }))
 
-userRoute.post('/latlong',verifyToken, expressAsyncHandler(async (req, res) => {
-    const address = req.body;
+userRoute.post('/latlong', expressAsyncHandler(async (req, res) => {
+    const address = req.body.add;
+    console.log(address);
     if (!address) {
         return res.status(400).json({ message: "Address not provided" });
     }
 
-    const pythonProcess = spawn('python', ['E:/Projects/Team-43/backend/python/location.py', address]);
+    const pythonProcess = spawn('python', ['/Users/koduruchandrakanthreddy/Desktop/jpmc/Team-43/backend/python/location.py', address]);
 
     pythonProcess.stdout.on('data', (data) => {
         const output = data.toString().trim();
